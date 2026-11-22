@@ -1,4 +1,10 @@
 title: Engineering Principles
 description: >-
-  Language-neutral software engineering principles: design, code
-  organisation, naming, interfaces, errors, testing, and performance.
+  Language-neutral software engineering principles: design (DRY, KISS,
+  single source of truth, reference over copy, convention over
+  configuration, comment placement) and practice (research first,
+  diagnosing bugs, lint-versus-behavior pre-flight).
+packages:
+  defaults:
+    - design
+    - practice

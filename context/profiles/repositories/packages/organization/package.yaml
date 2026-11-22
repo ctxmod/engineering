@@ -1,0 +1,4 @@
+description: >-
+  The repository-organization rule that points at the structure
+  doctrine.
+binds_to_depth: main...

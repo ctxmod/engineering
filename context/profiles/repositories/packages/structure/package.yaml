@@ -1,0 +1,5 @@
+description: >-
+  Repository structure doctrine: directory taxonomy, architecture
+  decision records, the tooling contract, package boundaries and the
+  rank graph, and the testing tiers.
+binds_to_depth: main...

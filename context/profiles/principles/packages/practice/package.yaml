@@ -1,0 +1,5 @@
+description: >-
+  Engineering practice: research before implementing, diagnosing bugs
+  and performance regressions, and probing linter rules before
+  committing to a pattern.
+binds_to_depth: main...
