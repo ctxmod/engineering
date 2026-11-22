@@ -1,0 +1,10 @@
+title: Engineering
+description: >-
+  Language-neutral software engineering doctrine: design principles,
+  code organisation, naming, interfaces, errors, testing, performance,
+  and repository design (layout, documentation, tooling, CI, and
+  versioning). Language modules (go, rust, python, typescript) and
+  domain modules (infra, ai) build on it.
+path: github.com/ctxmod/engineering/context
+default_profiles:
+  - principles

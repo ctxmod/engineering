@@ -1,0 +1,8 @@
+title: Engineering Internal
+description: >-
+  Development-only context for authoring and maintaining the
+  engineering module itself.
+path: github.com/ctxmod/engineering/context.internal
+private: true
+requires:
+  - github.com/ctxmod/writing_context/context

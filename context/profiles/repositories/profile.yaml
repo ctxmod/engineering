@@ -1,0 +1,6 @@
+title: Repository Design
+description: >-
+  Repository design doctrine: layout, documentation, tooling, CI,
+  dependency management, and versioning of software repositories.
+extends:
+  - github.com/ctxmod/engineering/context/profiles/principles
