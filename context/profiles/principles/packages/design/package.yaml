@@ -1,0 +1,4 @@
+description: >-
+  Design principles: DRY, KISS, single source of truth, reference over
+  copy, convention over configuration, and comment placement.
+binds_to_depth: main...
