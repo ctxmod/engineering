@@ -1,11 +1,14 @@
 title: Repository Design
 description: >-
   Repository design doctrine: directory taxonomy, ADR discipline, the
-  tooling contract, package boundaries, and testing tiers. Extends the
-  principles profile.
+  tooling contract, package boundaries, and testing tiers; and delivery
+  practice: versioning and commit conventions, trunk-based change flow
+  and code review, supply-chain integrity, and delivery metrics with
+  error budgets. Extends the principles profile.
 extends:
   - github.com/ctxmod/engineering/context/profiles/principles
 packages:
   defaults:
     - organization
     - structure
+    - delivery

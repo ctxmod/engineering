@@ -15,6 +15,38 @@ Each record is numbered, dated, and immutable in substance:
 - **Statused** — proposed, accepted, superseded. The status line is the
   record's live field; everything else is history.
 
+## Record Formats
+
+Two published formats cover almost every repository; pick one, write it
+down once, and let every record follow it.
+
+- **Nygard (2011)** — the original lightweight form: *Title*, *Status*,
+  *Context*, *Decision*, *Consequences*, one short Markdown file per
+  decision, numbered sequentially and never renumbered. Its strength is
+  brevity; its gap is that rejected alternatives live only in prose, if
+  at all.
+- **MADR 4.0.0 (2024-09-17)** — "Markdown Architectural Decision Records".
+  Required sections: *Context and Problem Statement*, *Considered
+  Options*, *Decision Outcome* (the chosen option and why). Optional:
+  *Decision Drivers*, *Consequences* (one section since 3.0.0, no longer
+  split positive/negative), *Confirmation*, *Pros and Cons of the
+  Options*, *More Information*, plus optional front matter (`status`,
+  `date`, `decision-makers`, `consulted`, `informed`). Files are named
+  `NNNN-title-with-dashes.md`; the repository ships full, minimal and
+  bare templates.
+
+How the formats meet this discipline:
+
+- *Considered Options* is where "rejections that would otherwise be
+  re-proposed" (see When to Record) are kept; a Nygard-style repository
+  adds an *Alternatives* heading to get the same property.
+- MADR's front matter is the natural source for the machine-readable
+  projection below — generate the index from it rather than maintaining
+  a second hand-written table.
+- MADR's *Confirmation* section states how compliance is checked (a
+  review step, a fitness function, a guard test); it is where a record
+  names the guard that pins it.
+
 ## Append-Only History
 
 Amendments append; they never rewrite. A reversed decision produces a *new*
@@ -92,3 +124,8 @@ wherever that corpus is authored or edited:
 If a resolved term strains to find a home in `PROJECT.md` or the
 corpus, that is a vocabulary-architecture question to surface, not a
 reason to invent a new artifact.
+
+## Sources
+
+- https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions — M. Nygard, "Documenting Architecture Decisions", the original ADR format (2011-11-15); accessed 2026-11-23.
+- https://adr.github.io/madr/ — MADR 4.0.0 (released 2024-09-17): section list, front-matter fields, file naming, template variants; accessed 2026-11-23.

@@ -11,7 +11,7 @@ Agent knowledge has a cutoff date. Best practices evolve. External research brid
 | Source | Purpose |
 |--------|---------|
 | Academic databases | Foundational research, proven techniques |
-| GitHub | Real-world implementations, community patterns |
+| Public code hosts | Real-world implementations, community patterns |
 | Technical blogs | Practical insights, recent developments |
 | Documentation | Official guidance, current APIs |
 | Forums | Community consensus, known issues |
@@ -31,10 +31,12 @@ Before implementation, identify what you don't know:
 
 Use available search tools:
 
-- Perplexity search for general best practices
+- Official documentation, specifications, and changelogs first, for
+  current APIs, versions, and deprecations
 - Academic search for foundational research
-- GitHub search for implementation patterns
-- Web search for recent discussions and updates
+- Code search across public repositories for implementation patterns
+- General web search for recent discussions and updates — leads to be
+  confirmed against a primary source (see Primary-Source Discipline)
 
 ### 3. Synthesize Findings
 

@@ -1,0 +1,6 @@
+description: >-
+  Delivery doctrine: versioning and commit conventions, trunk-based
+  change flow and code review, the deployable-unit baseline,
+  supply-chain integrity (provenance, SBOMs, signing, posture checks),
+  and delivery metrics with error budgets.
+binds_to_depth: main...

@@ -3,8 +3,8 @@
 A discipline for hard bugs and performance regressions. The phases run
 in order; skip one only with an explicit justification recorded in the
 work notes. Before exploring, read for context: `PROJECT.md` and the
-`.ctx/` reference corpus for the modules in play, plus the decision
-records covering the area you are touching.
+reference corpus of the repository's context module for the areas in
+play, plus the decision records covering the area you are touching.
 
 ## Redact Before You Show
 

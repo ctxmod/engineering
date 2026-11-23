@@ -56,3 +56,28 @@ row did not, for the repository's purposes, happen.
   critical check that is cheap and deterministic belongs in tier 1; an
   unimportant check that needs a cluster still does not belong in the
   default path.
+
+## Mapping to Test Sizes
+
+The tiers classify by *when a check runs and who certifies it*; the
+widely used test-size vocabulary classifies by *what a test may touch*.
+They compose rather than compete:
+
+| Size | Resource constraint | Usual tier |
+|---|---|---|
+| Small | one process, (typically) one thread; no network, disk or sleeps — in-memory fakes only | tier 1 |
+| Medium | one machine; multiple processes, threads, and calls to `localhost` | tier 1 when hermetic and fast, otherwise tier 2 |
+| Large | multiple machines; real external services | tier 2, or tier 3 when the verdict needs a human |
+
+Hermeticity — a test carries everything it needs to set up, run and tear
+down its environment, and assumes nothing about the outside world — is the
+property every size strives for; a size limit (enforced timeouts, blocked
+network) turns it into something the runner checks instead of hopes for.
+Size describes the test; tier describes the selection. A medium test that
+needs a container is still a tier-2 registration even if it is
+"only medium".
+
+## Sources
+
+- https://abseil.io/resources/swe-book/html/ch11.html — *Software Engineering at Google*, ch. 11 "Testing Overview": small/medium/large test sizes and hermeticity; accessed 2026-11-23.
+- https://testing.googleblog.com/2010/12/test-sizes.html — Google Testing Blog, "Test Sizes" (2010-12), the original size table; accessed 2026-11-23.
