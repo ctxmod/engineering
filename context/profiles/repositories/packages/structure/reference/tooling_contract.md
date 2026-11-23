@@ -52,6 +52,30 @@ Go-carrying repositories for exactly this reason — the tool imports the same
 schema types the product code uses, so the tool cannot drift from the
 schema.
 
+## Scaling the Contract in a Monorepo
+
+In a large repository the contract only stays cheap when tools stop doing
+whole-tree work on every invocation:
+
+- **Affected-target selection.** A check derives what a change can affect
+  from the dependency graph (build graph, package graph, path-to-owner
+  map) and runs only that, with a documented escape to "everything" for
+  releases and for graph-defining files (lockfiles, toolchain pins, root
+  config) whose change invalidates the selection itself.
+- **Content-addressed caching.** A step whose declared inputs (sources,
+  tool versions, flags, environment) hash identically to a previous run
+  may reuse that run's outputs, locally or from a shared remote cache.
+  The cache is only as sound as the input declaration: an undeclared
+  input — an ambient environment variable, the current time, an
+  unpinned tool — turns a cache hit into a stale result. Hermetic steps
+  are a precondition for sharing a cache, not a nicety.
+- **Ownership as data.** Review routing comes from an ownership file
+  that maps paths to owning teams (a `CODEOWNERS`-style table), so the
+  taxonomy's slots and the review boundary are the same lines.
+- **Same selection locally and in CI.** "Everything CI does is runnable
+  locally" extends to the selection: the developer's "what does my change
+  affect?" query and CI's must return the same set.
+
 ## Division with Multi-Language Orchestration
 
 The repo toolchain contract governs individual tools. When a repository
@@ -60,3 +84,8 @@ that tier's own toolchain guidance (the JS/TS orchestrator positioning lives
 in the frontend guidance, for example); the tooling contract here is the
 interface every tier's tools conform to, regardless of which orchestrator
 invokes them.
+
+## Sources
+
+- https://bazel.build/remote/caching — Bazel documentation, "Remote Caching": action-keyed, content-addressed output reuse and the requirement that actions be hermetic and fully declared (one widely documented instance of the pattern); accessed 2026-11-23.
+- https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners — "About code owners": path-to-owner tables driving review requests (one host's instance of ownership-as-data); accessed 2026-11-23.
